@@ -19,7 +19,9 @@ Electron apps offer the same endless capabilities as web apps -- from simple bro
 
 ### Cons of Electron:
 
-- Space: Electron apps run with [Chromium](https://www.chromium.org/Home), and they need to have the Chromium OS to run, so they take up a decent amount of space -- to give you an idea, the simple app we'll be building is around **todo**. For smaller, lightweight apps, another language or runtime environment.
+- Space: Electron apps run with [Chromium](https://www.chromium.org/Home), and they need to have the Chromium OS to run, so they take up a decent amount of space -- to give you an idea, the simple app we'll be building is around
+  **todo**
+  . For smaller, lightweight apps, another language or runtime environment.
 - Source code: Because of the way Electron apps are packaged, there are ways for the user to access and manipulate the source code using [asar](https://github.com/electron/asar). While this can enable users to make their own custom extensions and additions to applications, it can potentially pose a security threat for your app if you're not careful.
 
 ### Getting Started
@@ -65,7 +67,7 @@ A simple file will do -- mine looked like this.
 
 Great! Now, the last step is the JavaScript. Electron needs some base JS in order to manage windows, close correctly, et cetera -- so we'll pop that in our index.js file.
 
-```
+```javascript
 const { app, BrowserWindow } = require("electron");
 
 let win;
@@ -103,10 +105,7 @@ app.on("activate", () => {
 });
 ```
 
-Try running with `npm start` and you should see your app! **PHOTO**
+Try running with `npm start` and you should see your app!
+**PHOTO**
 
-The code for your app can be added directly into your index.js file, or to keep your project more organized, written in other files and imported. Note that it is difficult to directly alter the UI from background processes like our index.js file; if you want to modify the UI, it is easier to import your JS as a `<script>` in your html.
-
-```
-const myFunctions = require("anotherJSFile");
-```
+The code for your app can be added directly into your index.js file, or to keep your project more organized, written in other files and imported by using _require_ at the top of the index.js. Note that it is difficult to directly alter the UI from background processes like our index.js file; if you want to modify the UI, it is easier to import your JS as a `<script>` in your html.
