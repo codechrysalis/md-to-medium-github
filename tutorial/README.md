@@ -1,8 +1,7 @@
 ## Electron Tutorial
 
 One of the most compelling reasons that so many developers learn JavaScript is because it's the "language of the web." As a result of the immense developer presence that powers the web as we know it, JavaScript, CSS, and HTML have become the most popular languages among developers; the [StackOverflow 2018 Survey](https://insights.stackoverflow.com/survey/2018#technology) found that 70% of developers work with JavaScript as their primary language, and the number is even higher for those who develop professionally.
-
-**IMAGE**
+![StackOverflow survey results](https://github.com/NateNeumann/electron-tutorial/blob/master/tutorial/img/js-dominance.png?raw=true)
 
 But what if someone well-versed in JavaScript wanted to develop for applications that aren't web-based? Many other languages are suited for development of locally-run desktop applications, but modern JavaScript development practices are heavily weighted towards web development.
 
@@ -106,6 +105,7 @@ app.on("activate", () => {
 ```
 
 Try running with `npm start` and you should see your app!
-**PHOTO**
+
+![StackOverflow survey results](https://github.com/NateNeumann/electron-tutorial/blob/master/tutorial/img/hello-world.png?raw=true)
 
 The code for your app can be added directly into your index.js file, or to keep your project more organized, written in other files and imported by using _require_ at the top of the index.js. Note that it is difficult to directly alter the UI from background processes like our index.js file; if you want to modify the UI, it is easier to import your JS as a `<script>` in your html.
