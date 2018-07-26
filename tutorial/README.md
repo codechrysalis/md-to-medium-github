@@ -109,3 +109,7 @@ Try running with `npm start` and you should see your app!
 ![StackOverflow survey results](https://github.com/NateNeumann/electron-tutorial/blob/master/tutorial/img/hello-world.png?raw=true)
 
 The code for your app can be added directly into your index.js file, or to keep your project more organized, written in other files and imported by using _require_ at the top of the index.js. Note that it is difficult to directly alter the UI from background processes like our index.js file; if you want to modify the UI, it is easier to import your JS as a `<script>` in your html.
+
+Once you're happy with it, your app can be packaged easily using [electron-packager](https://github.com/electron-userland/electron-packager). Install electron-packager with `npm install electron-packager -g`, and then you can package your Electron app for sharing by simply calling `electron-packager .` on the command line.
+
+And that's all there is to it! Electron makes developing native applications is a great framework for developers with web experience to develop native applications on. Not only that, but the process of converting a web app into a desktop app with electron is a cinch too. It's certainly best to rebuild it using your existing source files -- but if you want the functionality quick, try replacing `win.loadFile("src/index.html");` from your index.js file with `win.loadURL("https://sample-website.com")`, and you'll have a desktop-bootable build instantly. Cheers!
