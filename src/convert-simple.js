@@ -1,4 +1,4 @@
-function convertEnglish(input) {
+function englishToMorse(input) {
   let str = "";
   for (char in input) {
     str += englishDict[input[char]] + " ";
@@ -6,7 +6,7 @@ function convertEnglish(input) {
   return str;
 }
 
-function convertMorse(input) {
+function morseToEnglish(input) {
   let str = "";
   input = input.split(" ");
   for (letter in input) {

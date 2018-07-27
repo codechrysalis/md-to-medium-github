@@ -1,3 +1,4 @@
+// Unused -- this was just to translate the JSON in intial building.
 let newDict = {};
 
 for (let key in dictionary) {

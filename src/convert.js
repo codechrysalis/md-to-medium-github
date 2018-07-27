@@ -1,39 +1,56 @@
 const englishDict = require("./english-to-morse.json");
 const morseDict = require("./morse-to-english.json");
 
-document
-  .getElementById("english-to-morse-button")
-  .addEventListener("click", function(event) {
-    const input = document.getElementById("input-english").value;
-    console.log("input:" + input);
-    document.getElementById("result").innerHTML = convertEnglish(
-      input.toLowerCase()
-    );
-  });
+const englishInput = document.getElementById("input-english");
+const morseInput = document.getElementById("input-morse");
+const englishToMorseButton = document.getElementById("english-to-morse-button");
+const morseToEnglishButton = document.getElementById("morse-to-english-button");
 
-const convertEnglish = english => {
+// English to Morse Conversion
+englishToMorseButton.addEventListener("click", function(event) {
+  const input = englishInput.value;
+  document.getElementById("result-morse").innerHTML = englishToMorse(
+    input.toLowerCase()
+  );
+});
+
+const englishToMorse = english => {
   let str = "";
   for (char in english) {
-    str += englishDict[english[char]] + " ";
-    console.log(englishDict[english[char]]);
+    console.log(english[char]);
+    if (english[char] == " ") {
+      str += "\xa0 \xa0";
+    } else {
+      str += englishDict[english[char]] + " ";
+    }
   }
   return str;
 };
 
-document
-  .getElementById("morse-to-english-button")
-  .addEventListener("click", function(event) {
-    let input = document.getElementById("input-morse").value;
-    console.log("input:" + input);
-    document.getElementById("result").innerHTML = convertMorse(input);
-  });
+// Morse to English Conversion
+morseToEnglishButton.addEventListener("click", function(event) {
+  let input = morseInput.value;
+  document.getElementById("result-english").innerHTML = morseToEnglish(input);
+});
 
-const convertMorse = morse => {
+const morseToEnglish = morse => {
   let str = "";
   morse = morse.split(" ");
   for (char in morse) {
     str += morseDict[morse[char]];
-    console.log(morseDict[morse[char]]);
   }
   return str;
 };
+
+// Convert current box on "Enter"
+englishInput.addEventListener("keyup", function(event) {
+  if (event.keyCode === 13) {
+    englishToMorseButton.click();
+  }
+});
+
+morseInput.addEventListener("keyup", function(event) {
+  if (event.keyCode === 13) {
+    morseToEnglishButton.click();
+  }
+});
