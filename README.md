@@ -1,10 +1,10 @@
-## Morse Code Transcriber
+## Post Markdown to Medium and GitHub
 
-A simple Morse Code transcriber desktop app, made with Electron.
+A GUI to preview, edit, and post Markdown files directly to your Medium stories and organizations, as well as GitHub project repos.
 
-![Screenshot of app transcribing.](https://github.com/NateNeumann/electron-tutorial/blob/master/tutorial/img/convert.png?raw=true)
-
-This was created to be part of an Electron tutorial; you can find the tutorial [on Medium](https://medium.com/code-chrysalis/build-your-first-desktop-app-with-electron-2504b7214ec6), or in the tutorial folder's README.
-
-Development build with `npm start`. 
+Development build with `yarn start`.
 The app is easiest built for a stable user build with [electron-packager](https://github.com/electron-userland/electron-packager).
+
+Dependencies and Thanks:
+This app wouldn't be possible without [Marked.js](https://github.com/markedjs/marked).
+Originally created as a project for [Code Chrysalis]((https://codechrysalis.io).

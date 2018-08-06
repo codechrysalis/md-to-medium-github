@@ -14,9 +14,9 @@ function createWindow() {
     win = null;
   });
 
-  win.webContents.executeJavaScript(
-    console.log("This is a way of accessing the window from index.js.")
-  );
+  // win.webContents.executeJavaScript(
+  //   console.log("This is a way of accessing the window from index.js.")
+  // );
 }
 
 // Creates a new window once Electron is ready.

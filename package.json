@@ -7,6 +7,7 @@
   "scripts": {
     "start": "electron ."
   },
+  "access-token": "2a515fe743d0ea3327a9140ac3e9e235aab6d7ce57a34d7632fd7edcd9b5460e3",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/nateneumann/electron-tutorial.git"
@@ -18,7 +19,8 @@
   },
   "homepage": "https://github.com/nateneumann/electron-tutorial#readme",
   "dependencies": {
-    "electron": "^2.0.5"
+    "electron": "^2.0.5",
+    "jquery": "^3.3.1"
   },
   "devDependencies": {
     "electron-packager": "^12.1.0"

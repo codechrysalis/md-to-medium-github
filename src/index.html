@@ -1,25 +1,48 @@
 <html>
 
 <head>
-    <title>Morse Code Transcriber</title>
+    <title>Post to Medium and Blog</title>
     <link rel="stylesheet" href="index.css" />
+    <!-- <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script> -->
+
 </head>
 
 <body>
-    <h1 id="main-title"> Morse Code Transcriber </h1>
-    <input id="input-english" type="text" placeholder="English to convert" />
-    <button type="button" id="english-to-morse-button"> Convert </button>
-
-    <input id="input-morse" type="text" placeholder="Morse Code to convert" />
-    <button type="button" id="morse-to-english-button"> Convert </button>
-
-    <div id="results">
-        <h2 id="result-morse" class="result"></h2>
-        <h2 id="result-english" class="result"></h2>
-    </div>
+    <h1>Post to Code Chrysalis Blog (Medium and GitHub Pages) </h1>
+    <form id="postform" action="https://api.medium.com/v1/users/@sophie.a.debs/posts">
+        <input type="radio" name="individual-or-publication" id="individual" checked>
+        <label for="individual">Post to My Stories</label>
+        <input type="radio" name="individual-or-publication" id="publication" checked>
+        <label for="publication">Post to a Publication</label>
+        <br>
+        <br> Title:
+        <input type="text" name="title">
+        <br> Markdown File:
+        <input id="mdfile" type="file" multiple="" name="content">
+        <br> URL (if posted elsewhere):
+        <input type="url" name="canonicalUrl">
+        <br>
+        <input name="publishStatus" hidden="true" type="text" value="public">
+        <input name="contentFormat" hidden="true" type="text" value="markdown">
+        <input id="submitPostButton" type="button" value="Post">
+        <br>
+        <br> Post Preview:
+        <div id="postpreview" class="preview"></div>
+        <br> Raw Markdown:
+        <br>
+        <textarea id="rawmd" class="preview" rows="50" cols="80"></textarea>
+    </form>
 
 </body>
 
-<script type="text/javascript" src="convert.js"></script>
+<script>if (typeof module === 'object') { window.module = module; module = undefined; }</script>
+
+<!-- normal script imports etc  -->
+<script src="jquery-3.3.1.min.js"></script>
+<script src="post-script.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+
+<!-- Insert this line after script imports -->
+<script>if (window.module) module = window.module;</script>
 
 </html>

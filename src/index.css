@@ -2,6 +2,7 @@ body {
   padding-top: 10vh;
   text-align: center;
   font-family: Avenir;
+  margin: 10vh;
 }
 
 .result {
@@ -9,6 +10,7 @@ body {
   margin: 0px;
 }
 
-#result-morse {
-  border-bottom: 1px solid black;
+.preview {
+  border: 1px solid black;
+  min-height: 30px;
 }
