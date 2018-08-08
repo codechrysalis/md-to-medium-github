@@ -3,28 +3,22 @@
   "productName": "Morse Transcriber",
   "version": "1.0.0",
   "description": "Translates between English alphabet and Morse Code.",
-  "main": "src/index.js",
   "scripts": {
-    "start": "electron ."
+    "start": "python -m SimpleHTTPServer 8000"
   },
   "access-token": "2a515fe743d0ea3327a9140ac3e9e235aab6d7ce57a34d7632fd7edcd9b5460e3",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/nateneumann/electron-tutorial.git"
+    "url": "git+https://github.com/nateneumann/md-to-medium-github.git"
   },
   "author": "Sophie Debs",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/nateneumann/electron-tutorial/issues"
+    "url": "https://github.com/nateneumann/md-to-medium-github/issues"
   },
-  "homepage": "https://github.com/nateneumann/electron-tutorial#readme",
+  "homepage": "https://github.com/nateneumann/md-to-medium-github#readme",
   "dependencies": {
-    "electron": "^2.0.5",
-    "electron-oauth2": "^3.0.0",
     "jquery": "^3.3.1",
     "medium-sdk": "^0.0.4"
-  },
-  "devDependencies": {
-    "electron-packager": "^12.1.0"
   }
 }

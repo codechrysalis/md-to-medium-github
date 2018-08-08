@@ -37,6 +37,8 @@ $("#submitPostButton").click(function() {
   let markdownFile = document.forms["postform"].elements["rawmd"].value;
   let originalUrl = $("input[name = canonicalUrl]").val();
 
+  console.log("Posted.");
+
   // If you need to get your ID, use this!
 
   // $.ajax({
@@ -58,33 +60,4 @@ $("#submitPostButton").click(function() {
   //     console.log(err);
   //   }
   // });
-
-  let userId =
-    "195f829573f133446e8314efec18df99cdcae04356b3bc29bfc9ed97e5155d11d";
-
-  $.ajax({
-    type: "POST",
-    url: `https://api.medium.com/v1/users/${userId}/posts`,
-    headers: {
-      Authorization:
-        "Bearer " +
-        "2a515fe743d0ea3327a9140ac3e9e235aab6d7ce57a34d7632fd7edcd9b5460e3",
-      contentType: "application/json;charset=utf-8",
-      Accept: "application / json",
-      acceptCharset: "utf-8"
-    },
-    data: {
-      title: postTitle,
-      contentFormat: "markdown",
-      content: markdownFile,
-      canonicalUrl: originalUrl
-    },
-    success: function(response) {
-      console.log(response);
-    },
-    error: function(xhr, status, error) {
-      var err = eval("(" + xhr.responseText + ")");
-      console.log(err);
-    }
-  });
 });
