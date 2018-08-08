@@ -3,6 +3,7 @@
 <head>
     <title>Post to Medium and Blog</title>
     <link rel="stylesheet" href="index.css" />
+    <script src="authenticate.js"></script>
     <!-- <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script> -->
 
 </head>
@@ -33,6 +34,7 @@
         <textarea id="rawmd" class="preview" rows="50" cols="80"></textarea>
     </form>
 
+    <button onclick="authenticateWindow()"></button>
 </body>
 
 <script>if (typeof module === 'object') { window.module = module; module = undefined; }</script>

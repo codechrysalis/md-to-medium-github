@@ -1,5 +1,8 @@
 const { app, BrowserWindow } = require("electron");
 
+// This is just for handling the Electron window.
+// Primary app functionality should be done in post-script.js.
+
 let win;
 
 function createWindow() {
