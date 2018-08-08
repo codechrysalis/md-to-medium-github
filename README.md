@@ -1,4 +1,4 @@
-## Post Markdown to Medium and GitHub
+## Markdown to Medium and GitHub
 
 A GUI to preview, edit, and post Markdown files directly to your Medium stories and organizations, as well as GitHub project repos.
 
