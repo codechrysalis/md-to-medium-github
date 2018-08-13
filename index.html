@@ -9,7 +9,7 @@
 </head>
 
 <body>
-    <h1>5.19 Post to Code Chrysalis Blog (Medium and GitHub Pages) </h1>
+    <h1>5.20 Post to Code Chrysalis Blog (Medium and GitHub Pages) </h1>
     <form id="postform">
         <input type="radio" name="individual-or-publication" id="individual" checked>
         <label for="individual">Post to My Stories</label>
@@ -17,6 +17,9 @@
         <label for="publication">Post to a Publication</label>
         <br> API Code:
         <input id="authcode" type="text" value="218800e8caf5ef6ff60fe81916ba76d1d6f6ebc995256234a8ae6eb2b7a393a0e">
+        <br>
+        <button id="getIdButton">Get ID</button>
+        <input type="text" id="userId">
         <br>
         <br> Title:
         <input type="text" name="title">
@@ -35,9 +38,7 @@
         <br>
         <textarea id="rawmd" class="preview" rows="50" cols="80"></textarea>
     </form>
-    <br>
-    <button id="getIdButton">Get ID</button>
-    <input type="text" id="userId">
+
     </p>
 
     <button onclick="authenticateMedium()">Authenticate w/ Medium</button>
