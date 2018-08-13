@@ -66,7 +66,7 @@ $("#submitPostButton").click(function() {
 
   $.ajax({
     type: "POST",
-    url: `https://api.medium.com/v1/users/${userId}/posts`,
+    url: `https://cors-anywhere.herokuapp.com/https://api.medium.com/v1/users/${userId}/posts`,
     headers: {
       Authorization: "Bearer " + authCode,
       contentType: "application/json;charset=utf-8",
