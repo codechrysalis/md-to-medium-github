@@ -33,14 +33,14 @@ document.forms["postform"].elements["rawmd"].onchange = function(evt) {
 };
 
 $("#getIdButton").click(function() {
-  let authCode = $("#authCode").val();
+  let authCode = getElementById("authcode").value;
   let myAuthCode =
     "218800e8caf5ef6ff60fe81916ba76d1d6f6ebc995256234a8ae6eb2b7a393a0e";
   $.ajax({
     type: "GET",
     url: "https://cors-anywhere.herokuapp.com/https://api.medium.com/v1/me",
     headers: {
-      Authorization: "Bearer " + myAuthCode,
+      Authorization: "Bearer " + authCode,
       contentType: "application/json;charset=utf-8",
       Accept: "application / json",
       acceptCharset: "utf-8"
