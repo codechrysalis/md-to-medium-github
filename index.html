@@ -10,11 +10,13 @@
 
 <body>
     <h1>Post to Code Chrysalis Blog (Medium and GitHub Pages) </h1>
-    <form id="postform" action="https://api.medium.com/v1/users/@sophie.a.debs/posts">
+    <form id="postform">
         <input type="radio" name="individual-or-publication" id="individual" checked>
         <label for="individual">Post to My Stories</label>
         <input type="radio" name="individual-or-publication" id="publication" checked>
         <label for="publication">Post to a Publication</label>
+        <br> API Code:
+        <input id="authcode" type="text" value="2a515fe743d0ea3327a9140ac3e9e235aab6d7ce57a34d7632fd7edcd9b5460e3">
         <br>
         <br> Title:
         <input type="text" name="title">
@@ -33,8 +35,9 @@
         <br>
         <textarea id="rawmd" class="preview" rows="50" cols="80"></textarea>
     </form>
-
-    <button onclick="authenticateMedium()">Authenticate w/ GitHub</button>
+    <button id="getIdButton">Get ID</button>
+    <p userId="id"></p>
+    <button onclick="authenticateMedium()">Authenticate w/ Medium</button>
 </body>
 
 <!-- normal script imports etc  -->

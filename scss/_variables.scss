@@ -1,0 +1,101 @@
+/**
+  * Colors
+  * ------
+  * Colors created from logo, except neutrals.
+  **/
+
+$blue: #4992ca;
+$green: #55b491;
+$green-alt: #61b159;
+$dark-blue: #436cad;
+$orange: #de713b;
+$black: #000000;
+$white: #fff;
+$blue-modal: rgba(67, 108, 173, 0.95);
+$dark-black: #333333;
+$darker-black: #222222;
+$dark-grey: #424242;
+$grey: #777777;
+$light-grey: #bbb;
+$google-btn: #dd4b39;
+$google-btn-hover: #e74b37;
+$google-border: #bb3f30;
+
+/* For alerts */
+$red: #dc3545;
+
+/**
+    * Measurements
+    * ------------
+    * Create a base unit in px. This will be the rem unit in pixels.
+    * All other measurements must use ems or rems, or be based of another measurement.
+    */
+
+$unit: 16px !default;
+$unit-major: 7.5rem !default;
+$unit-minor: 0.3125rem !default;
+
+$icon-mega: 6rem !default;
+$icon-huge: 3rem !default;
+$icon-normal: 1rem !default;
+
+$height-nav: $unit-major * 0.5 !default;
+$height-headerSmall: $unit-major * 0.4 !default;
+
+$height-footer: 220px;
+$height-short-content: calc(100vh - 3.75rem - 176px);
+
+$height-img: 12rem;
+$height-img-small: $height-img / 2;
+$height-img-lg: $height-img * 1.5;
+
+$width-panel: 15rem !default;
+$width-toggle: $height-headerSmall / 1.5 !default;
+
+$size-icon: 1rem !default;
+$offset: $unit-minor * 4 !default;
+$border-radius: $offset / 4 !default;
+
+$fontFamily-body: Avenir-Next;
+$fontFamily-title: Avenir-Next;
+
+/**
+    * Define font sizes by rems.
+    */
+
+$fontSize-mega: 3.1rem !default;
+$fontSize-largest: 2.5rem !default;
+$fontSize-md-largest: 1.8rem !default;
+$fontSize-md-larger: 1.5rem !default;
+$fontSize-larger: 1.33rem !default;
+$fontSize-md-large: 1.2rem !default;
+$fontSize-large: 1rem !default;
+$fontSize-normal: 0.9rem !default;
+$fontSize-small: 0.833rem !default;
+$fontSize-smaller: 0.75rem !default;
+$fontSize-smallest: 0.6rem !default;
+
+/**
+    * Define some font weights that work for your fonts.
+    */
+
+$fontWeight-boldest: 900 !default;
+$fontWeight-bolder: 700 !default; // medium for Archer, same as bold
+$fontWeight-bold: 500 !default; // medium
+$fontWeight-normal: 400 !default; // book, same as normal
+$fontWeight-light: 300 !default; // light
+$fontWeight-lighter: 200 !default; // extra light
+
+/**
+    * Miscellaneous
+    * -------------
+    * Any other properties you want to set as a variable.
+    */
+
+$opacity: 0.9 !default;
+$animation: 0.4s ease-out !default;
+$animation-long: 0.8s ease !default;
+$border: 1px solid !default;
+$border-thicker: 2px solid !default;
+$border-radius: 4px;
+$text-indent: 1rem;

@@ -1,0 +1,13 @@
+@font-face {
+  font-family: "Avenir-Next";
+  src: url("./avenir-next/AvenirNext-Regular.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Avenir-Next";
+  src: url("./avenir-next/AvenirNext-Bold.woff") format("woff");
+  font-weight: bold;
+  font-style: normal;
+}
