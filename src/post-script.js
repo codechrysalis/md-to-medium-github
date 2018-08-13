@@ -33,7 +33,7 @@ document.forms["postform"].elements["rawmd"].onchange = function(evt) {
 };
 
 $("#getIdButton").click(function() {
-  let authCode = $("input[name=authcode]").val();
+  let authCode = $("#authCode").val();
   $.ajax({
     type: "GET",
     url: "https://cors-anywhere.herokuapp.com/https://api.medium.com/v1/me",
