@@ -38,8 +38,7 @@ $("#getIdButton").click(function() {
     type: "GET",
     url: "https://cors-anywhere.herokuapp.com/https://api.medium.com/v1/me",
     headers: {
-      Authorization:
-        "Bearer 2a515fe743d0ea3327a9140ac3e9e235aab6d7ce57a34d7632fd7edcd9b5460e3",
+      Authorization: "Bearer " + authCode,
       contentType: "application/json;charset=utf-8",
       Accept: "application / json",
       acceptCharset: "utf-8"
