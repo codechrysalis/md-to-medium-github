@@ -46,7 +46,7 @@ $("#getIdButton").click(function() {
     },
     success: function(response) {
       console.log(response);
-      $("#userId").val = response.data.id;
+      document.getElementById("#userId").value = response.data.id;
     },
     error: function(xhr, status, error) {
       var err = eval("(" + xhr.responseText + ")");
