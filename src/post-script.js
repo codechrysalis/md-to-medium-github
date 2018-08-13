@@ -16,8 +16,7 @@ document.forms["postform"].elements["mdfile"].onchange = function(evt) {
 
     filecontent = evt.target.result;
 
-    document.forms["postform"].elements["rawmd"].value =
-      "Raw Markdown: \n" + evt.target.result;
+    document.forms["postform"].elements["rawmd"].value = evt.target.result;
 
     document.getElementById("postpreview").innerHTML = marked(
       evt.target.result
@@ -56,17 +55,17 @@ $("#getIdButton").click(function() {
 });
 
 $("#submitPostButton").click(function() {
-  let userCode = document.getElementById("authcode").value;
+  let userId = document.getElementById("userId").value;
   let postTitle = $("input[name=title]").val();
   let markdownFile = document.forms["postform"].elements["rawmd"].value;
   let originalUrl = $("input[name = canonicalUrl]").val();
 
-  let userId =
-    "195f829573f133446e8314efec18df99cdcae04356b3bc29bfc9ed97e5155d11d";
+  // let userId =
+  //   "195f829573f133446e8314efec18df99cdcae04356b3bc29bfc9ed97e5155d11d";
 
   $.ajax({
     type: "POST",
-    url: `https://cors-anywhere.herokuapp.com/https://api.medium.com/v1/users/${userCode}/posts`,
+    url: `https://cors-anywhere.herokuapp.com/https://api.medium.com/v1/users/${userId}/posts`,
     headers: {
       Authorization: "Bearer " + authCode,
       contentType: "application/json;charset=utf-8",
