@@ -1,6 +1,6 @@
 // import { $, jQuery } from "jquery";
 let markdownFile;
-let authCode;
+let authCode, userId;
 
 document.forms["postform"].elements["mdfile"].onchange = function(evt) {
   if (!window.FileReader) return; // Browser is not compatible
@@ -54,8 +54,31 @@ $("#getIdButton").click(function() {
   });
 });
 
+$("#getOrgIdButton").click(function() {
+  userId = document.getElementById("userId").value;
+  authCode = document.getElementById("authcode").value;
+  $.ajax({
+    type: "GET",
+    url: `https://cors-anywhere.herokuapp.com/https://api.medium.com/v1/users/${userId}/publications`,
+    headers: {
+      Authorization: "Bearer " + authCode,
+      contentType: "application/json;charset=utf-8",
+      Accept: "application / json",
+      acceptCharset: "utf-8"
+    },
+    success: function(response) {
+      console.log(response);
+      document.getElementById("userId").value = response.data.id;
+    },
+    error: function(xhr, status, error) {
+      var err = eval("(" + xhr.responseText + ")");
+      console.log(err);
+    }
+  });
+});
+
 $("#submitPostButton").click(function() {
-  let userId = document.getElementById("userId").value;
+  userId = document.getElementById("userId").value;
   let postTitle = $("input[name=title]").val();
   let markdownFile = document.forms["postform"].elements["rawmd"].value;
   let originalUrl = $("input[name = canonicalUrl]").val();
@@ -86,6 +109,37 @@ $("#submitPostButton").click(function() {
       console.log(err);
     }
   });
+});
 
-  // If you need to get your ID, use this!
+$("#submitPostOrgButton").click(function() {
+  userId = document.getElementById("userId").value;
+  let postTitle = $("input[name=title]").val();
+  let markdownFile = document.forms["postform"].elements["rawmd"].value;
+  let originalUrl = $("input[name = canonicalUrl]").val();
+
+  $.ajax({
+    type: "POST",
+    url: `https://cors-anywhere.herokuapp.com/https://api.medium.com/v1/publications/${publicationId}/posts`,
+    headers: {
+      Authorization: "Bearer " + authCode,
+      contentType: "application/json;charset=utf-8",
+      Accept: "application / json",
+      acceptCharset: "utf-8"
+    },
+    data: {
+      title: postTitle,
+      contentFormat: "markdown",
+      content: markdownFile,
+      canonicalUrl: originalUrl,
+      tags: ["development", "design"],
+      publishStatus: "draft"
+    },
+    success: function(response) {
+      console.log(response);
+    },
+    error: function(xhr, status, error) {
+      var err = eval("(" + xhr.responseText + ")");
+      console.log(err);
+    }
+  });
 });

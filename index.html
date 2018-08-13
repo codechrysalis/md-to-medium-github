@@ -27,7 +27,8 @@
         <br>
         <input name="publishStatus" hidden="true" type="text" value="public">
         <input name="contentFormat" hidden="true" type="text" value="markdown">
-        <input id="submitPostButton" type="button" value="Post">
+        <input id="submitPostButton" type="button" value="Post to my personal account">
+        <input id="submitPostOrgButton" type="button" value="Post to my organization">
         <br>
         <br> Post Preview:
         <div id="postpreview" class="preview"></div>
@@ -38,6 +39,9 @@
     <br>
     <button id="getIdButton">Get ID</button>
     <input type="text" id="userId">
+    <br>
+    <button id="getOrgIdButton">Get OrgID</button>
+    <input type="text" id="orgId">
     </p>
 
     <button onclick="authenticateMedium()">Authenticate w/ Medium</button>
