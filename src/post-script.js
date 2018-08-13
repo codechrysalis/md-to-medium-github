@@ -1,5 +1,6 @@
 // import { $, jQuery } from "jquery";
 let markdownFile;
+let authCode;
 
 document.forms["postform"].elements["mdfile"].onchange = function(evt) {
   if (!window.FileReader) return; // Browser is not compatible
@@ -33,9 +34,7 @@ document.forms["postform"].elements["rawmd"].onchange = function(evt) {
 };
 
 $("#getIdButton").click(function() {
-  let authCode = document.getElementById("authcode").value;
-  let myAuthCode =
-    "218800e8caf5ef6ff60fe81916ba76d1d6f6ebc995256234a8ae6eb2b7a393a0e";
+  authCode = document.getElementById("authcode").value;
   $.ajax({
     type: "GET",
     url: "https://cors-anywhere.herokuapp.com/https://api.medium.com/v1/me",
@@ -57,11 +56,37 @@ $("#getIdButton").click(function() {
 });
 
 $("#submitPostButton").click(function() {
+  let userCode = document.getElementById("authcode").value;
   let postTitle = $("input[name=title]").val();
   let markdownFile = document.forms["postform"].elements["rawmd"].value;
   let originalUrl = $("input[name = canonicalUrl]").val();
 
-  console.log("Posted.");
+  let userId =
+    "195f829573f133446e8314efec18df99cdcae04356b3bc29bfc9ed97e5155d11d";
+
+  $.ajax({
+    type: "POST",
+    url: `https://api.medium.com/v1/users/${userId}/posts`,
+    headers: {
+      Authorization: "Bearer " + authCode,
+      contentType: "application/json;charset=utf-8",
+      Accept: "application / json",
+      acceptCharset: "utf-8"
+    },
+    data: {
+      title: postTitle,
+      contentFormat: "markdown",
+      content: markdownFile,
+      canonicalUrl: originalUrl
+    },
+    success: function(response) {
+      console.log(response);
+    },
+    error: function(xhr, status, error) {
+      var err = eval("(" + xhr.responseText + ")");
+      console.log(err);
+    }
+  });
 
   // If you need to get your ID, use this!
 });
