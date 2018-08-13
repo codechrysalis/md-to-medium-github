@@ -119,7 +119,7 @@ $("#submitPostOrgButton").click(function() {
 
   $.ajax({
     type: "POST",
-    url: `https://cors-anywhere.herokuapp.com/https://api.medium.com/v1/publications/${publicationId}/posts`,
+    url: `https://cors-anywhere.herokuapp.com/https://api.medium.com/v1/publications/f70c19ed6433/posts`,
     headers: {
       Authorization: "Bearer " + authCode,
       contentType: "application/json;charset=utf-8",
