@@ -74,7 +74,6 @@ $("#submitPostOrgButton").click(function() {
       title: postTitle,
       contentFormat: "markdown",
       content: markdownFile,
-      canonicalUrl: originalUrl,
       tags: ["development", "design"],
       publishStatus: "draft"
     },
