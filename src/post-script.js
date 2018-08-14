@@ -26,8 +26,9 @@ document.getElementById("mdfile").onchange = function(evt) {
 };
 
 document.getElementById("rawmd").onchange = function(evt) {
-  document.getElementById("postpreview").innerHTML =
-    "Post Preview: \n" + marked(document.getElementById("rawmd").value);
+  document.getElementById("postpreview").innerHTML = marked(
+    document.getElementById("rawmd").value
+  );
 };
 
 $("#getIdButton").click(function() {
@@ -57,7 +58,6 @@ $("#getIdButton").click(function() {
 });
 
 $("#submitPostOrgButton").click(function() {
-  userId = document.getElementById("userId").value;
   let postTitle = $("input[name=title]").val();
   let markdownFile = document.getElementById("rawmd").value;
 
