@@ -1,6 +1,5 @@
 // import { $, jQuery } from "jquery";
-let markdownFile;
-let authCode, userId;
+let markdownFile, authCode, userId, errorDiv;
 
 document.forms["postform"].elements["mdfile"].onchange = function(evt) {
   if (!window.FileReader) return; // Browser is not compatible
@@ -32,90 +31,10 @@ document.forms["postform"].elements["rawmd"].onchange = function(evt) {
     marked(document.forms["postform"].elements["rawmd"].value);
 };
 
-$("#getIdButton").click(function() {
-  authCode = document.getElementById("authcode").value;
-  $.ajax({
-    type: "GET",
-    url: "https://cors-anywhere.herokuapp.com/https://api.medium.com/v1/me",
-    headers: {
-      Authorization: "Bearer " + authCode,
-      contentType: "application/json;charset=utf-8",
-      Accept: "application / json",
-      acceptCharset: "utf-8"
-    },
-    success: function(response) {
-      console.log(response);
-      document.getElementById("userId").value = response.data.id;
-    },
-    error: function(xhr, status, error) {
-      var err = eval("(" + xhr.responseText + ")");
-      console.log(err);
-    }
-  });
-});
-
-$("#getOrgIdButton").click(function() {
-  userId = document.getElementById("userId").value;
-  authCode = document.getElementById("authcode").value;
-  $.ajax({
-    type: "GET",
-    url: `https://cors-anywhere.herokuapp.com/https://api.medium.com/v1/users/${userId}/publications`,
-    headers: {
-      Authorization: "Bearer " + authCode,
-      contentType: "application/json;charset=utf-8",
-      Accept: "application / json",
-      acceptCharset: "utf-8"
-    },
-    success: function(response) {
-      console.log(response);
-      document.getElementById("userId").value = response.data.id;
-    },
-    error: function(xhr, status, error) {
-      var err = eval("(" + xhr.responseText + ")");
-      console.log(err);
-    }
-  });
-});
-
-$("#submitPostButton").click(function() {
-  userId = document.getElementById("userId").value;
-  let postTitle = $("input[name=title]").val();
-  let markdownFile = document.forms["postform"].elements["rawmd"].value;
-  let originalUrl = $("input[name = canonicalUrl]").val();
-
-  // let userId =
-  //   "195f829573f133446e8314efec18df99cdcae04356b3bc29bfc9ed97e5155d11d";
-
-  $.ajax({
-    type: "POST",
-    url: `https://cors-anywhere.herokuapp.com/https://api.medium.com/v1/users/${userId}/posts`,
-    headers: {
-      Authorization: "Bearer " + authCode,
-      contentType: "application/json;charset=utf-8",
-      Accept: "application / json",
-      acceptCharset: "utf-8"
-    },
-    data: {
-      title: postTitle,
-      contentFormat: "markdown",
-      content: markdownFile,
-      canonicalUrl: originalUrl
-    },
-    success: function(response) {
-      console.log(response);
-    },
-    error: function(xhr, status, error) {
-      var err = eval("(" + xhr.responseText + ")");
-      console.log(err);
-    }
-  });
-});
-
 $("#submitPostOrgButton").click(function() {
   userId = document.getElementById("userId").value;
   let postTitle = $("input[name=title]").val();
   let markdownFile = document.forms["postform"].elements["rawmd"].value;
-  let originalUrl = $("input[name = canonicalUrl]").val();
 
   $.ajax({
     type: "POST",
@@ -136,10 +55,16 @@ $("#submitPostOrgButton").click(function() {
     },
     success: function(response) {
       console.log(response);
+      errorDiv = document.getElementById("error-message");
+      errorDiv.style.color = "#008800";
+      errorDiv.innerHTML = "Success!";
     },
     error: function(xhr, status, error) {
       var err = eval("(" + xhr.responseText + ")");
       console.log(err);
+      console.log(err);
+      errorDiv = document.getElementById("error-message");
+      errorDiv.innerHTML = err;
     }
   });
 });
