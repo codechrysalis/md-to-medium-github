@@ -32,6 +32,7 @@ rawMarkdown.onchange = function(evt) {
 };
 
 $("#getIdButton").click(function() {
+  errorDiv.innerHTML = "Loading...";
   authCode = document.getElementById("authcode").value;
   $.ajax({
     type: "GET",
@@ -56,6 +57,7 @@ $("#getIdButton").click(function() {
 });
 
 $("#submitPostOrgButton").click(function() {
+  errorDiv.innerHTML = "Working...";
   let postTitle = $("input[name=title]").val();
   let markdownFile = rawMarkdown.value;
 
