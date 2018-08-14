@@ -9,7 +9,7 @@
 </head>
 
 <body>
-    <h1>Post to Code Chrysalis Blog (Medium; GitHub Pages forthcoming) </h1>
+    <h1>2.57 Post to Code Chrysalis Blog (Medium; GitHub Pages forthcoming) </h1>
     <form id="postform">
         <br> Authorization Code:
         <!-- Nate's is "218800e8caf5ef6ff60fe81916ba76d1d6f6ebc995256234a8ae6eb2b7a393a0e" -->
@@ -26,17 +26,19 @@
         <br>
         <input name="publishStatus" hidden="true" type="text" value="public">
         <input name="contentFormat" hidden="true" type="text" value="markdown">
-        <button id="getIdButton">Initialize (Please wait to post for a few seconds after initializing.)</button>
-        <input id="submitPostOrgButton" type="button" value="Post as draft to Code Chrysalis">
-
-        <h4 id="error-message"></h4>
-        <br>
-        <br> Post Preview:
-        <div id="postpreview" class="preview"></div>
-        <br>Raw Markdown:
-        <br>
-        <textarea id="rawmd" class="preview" rows="50" cols="80"></textarea>
     </form>
+
+    <button id="getIdButton">Initialize (Please wait to post for a few seconds after initializing.)</button>
+    <br>
+    <input id="submitPostOrgButton" type="button" value="Post as draft to Code Chrysalis">
+
+    <h4 id="error-message"></h4>
+    <br>
+    <br> Post Preview:
+    <div id="postpreview" class="preview"></div>
+    <br>Raw Markdown:
+    <br>
+    <textarea id="rawmd" class="preview" rows="50" cols="80"></textarea>
 </body>
 
 <!-- normal script imports etc  -->
