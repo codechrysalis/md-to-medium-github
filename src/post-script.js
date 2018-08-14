@@ -1,5 +1,9 @@
 // import { $, jQuery } from "jquery";
-let markdownFile, authCode, userId, errorDiv;
+let markdownFile, authCode, userId;
+
+let rawMarkdown = document.getElementById("rawmd");
+let previewBox = document.getElementById("postpreview");
+let errorDiv = document.getElementById("error-message");
 
 document.getElementById("mdfile").onchange = function(evt) {
   if (!window.FileReader) return; // Browser is not compatible
@@ -15,20 +19,16 @@ document.getElementById("mdfile").onchange = function(evt) {
 
     filecontent = evt.target.result;
 
-    document.getElementById("rawmd").value = evt.target.result;
+    rawMarkdown.value = evt.target.result;
 
-    document.getElementById("postpreview").innerHTML = marked(
-      evt.target.result
-    );
+    previewBox.innerHTML = marked(evt.target.result);
   };
 
   reader.readAsText(evt.target.files[0]);
 };
 
-document.getElementById("rawmd").onchange = function(evt) {
-  document.getElementById("postpreview").innerHTML = marked(
-    document.getElementById("rawmd").value
-  );
+rawMarkdown.onchange = function(evt) {
+  previewBox.innerHTML = marked(rawMarkdown.value);
 };
 
 $("#getIdButton").click(function() {
@@ -45,13 +45,11 @@ $("#getIdButton").click(function() {
     success: function(response) {
       console.log(response);
       userId = response.data.id;
-      errorDiv = document.getElementById("error-message");
       errorDiv.innerHTML = "Ready to go!";
     },
     error: function(xhr, status, error) {
       var err = eval("(" + xhr.responseText + ")");
       console.log(err);
-      errorDiv = document.getElementById("error-message");
       errorDiv.innerHTML = err;
     }
   });
@@ -59,7 +57,7 @@ $("#getIdButton").click(function() {
 
 $("#submitPostOrgButton").click(function() {
   let postTitle = $("input[name=title]").val();
-  let markdownFile = document.getElementById("rawmd").value;
+  let markdownFile = rawMarkdown.value;
 
   $.ajax({
     type: "POST",
@@ -79,7 +77,6 @@ $("#submitPostOrgButton").click(function() {
     },
     success: function(response) {
       console.log(response);
-      errorDiv = document.getElementById("error-message");
       errorDiv.style.color = "#008800";
       errorDiv.innerHTML = "Success!";
     },
@@ -87,7 +84,6 @@ $("#submitPostOrgButton").click(function() {
       var err = eval("(" + xhr.responseText + ")");
       console.log(err);
       console.log(err);
-      errorDiv = document.getElementById("error-message");
       errorDiv.innerHTML = err;
     }
   });
