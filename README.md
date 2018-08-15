@@ -6,4 +6,4 @@ Development build with `yarn start`.
 
 Dependencies and Thanks:
 This app wouldn't be possible without [Marked.js](https://github.com/markedjs/marked).
-Originally created as a project for [Code Chrysalis]((https://codechrysalis.io).
+Originally created as a project for [Code Chrysalis](https://codechrysalis.io).
